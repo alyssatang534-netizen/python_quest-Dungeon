@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <div class="section-title">
+        <div>
+            <p class="eyebrow">Saved in progress.json</p>
+            <h1>Your Progress</h1>
+        </div>
+        <div class="score-pill">Score: {{ player.score }}</div>
+    </div>
+
+    <div class="progress-track">
+        <div class="progress-fill" style="width: {{ progress_percent }}%"></div>
+    </div>
+    <p class="muted progress-label">{{ progress_percent }}% of dungeon levels unlocked</p>
+
+    <div class="info-grid">
+        <div>
+            <span>Username</span>
+            <strong>{{ player.username }}</strong>
+        </div>
+        <div>
+            <span>Current Level Completed</span>
+            <strong>{{ player.current_level }}</strong>
+        </div>
+        <div>
+            <span>Unlocked Levels</span>
+            <strong>{{ player.unlocked_levels|join(", ") }}</strong>
+        </div>
+    </div>
+
+    <h2>Badges</h2>
+    <div class="badge-list">
+        {% for badge in player.badges %}
+            <span class="badge">{{ badge }}</span>
+        {% else %}
+            <span class="muted">No badges yet.</span>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

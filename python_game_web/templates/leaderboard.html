@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <p class="eyebrow">Dungeon ranking</p>
+    <h1>Leaderboard</h1>
+    <div class="table-wrap">
+        <table>
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Score</th>
+                    <th>Completed Level</th>
+                    <th>Badges</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in players %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ player.username }}</td>
+                        <td>{{ player.score }}</td>
+                        <td>{{ player.current_level }}</td>
+                        <td>
+                            {% if player.badges %}
+                                {{ player.badges|join(", ") }}
+                            {% else %}
+                                None yet
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="5">No adventurers yet.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

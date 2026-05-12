@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="question-layout">
+    <aside class="panel compact">
+        <p class="eyebrow">Level {{ level.level_number }}</p>
+        <h2>{{ level.title }}</h2>
+        <div class="score-pill side-score">Score: {{ player.score }}</div>
+        <p class="muted">Question {{ question_number }} of {{ total_questions }}</p>
+        <div class="progress-track small">
+        <div class="progress-fill" style="width: {{ (question_number / total_questions * 100)|int }}%"></div>
+        </div>
+        <div class="battle-mini">
+            <span>Bug Monster appears!</span>
+            <div class="monster-face small idle">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="mouth"></span>
+            </div>
+        </div>
+    </aside>
+
+    <article class="panel question-card">
+        <div class="battle-banner">
+            <div>
+                <p class="eyebrow">Bug Monster appears!</p>
+                <p class="topic">Topic: {{ question.topic }}</p>
+            </div>
+            <div class="monster-face battle idle" aria-hidden="true">
+                <span class="eye left"></span>
+                <span class="eye right"></span>
+                <span class="mouth"></span>
+            </div>
+        </div>
+        <h1 class="question-title">{{ question.text }}</h1>
+        <form method="post" class="answer-list">
+            {% for letter, option in question.options.items() %}
+                <label class="answer-card">
+                    <input type="radio" name="answer" value="{{ letter }}">
+                    <span>{{ letter }}. {{ option }}</span>
+                </label>
+            {% endfor %}
+            <button class="button primary" type="submit">Cast Answer</button>
+        </form>
+    </article>
+</section>
+{% endblock %}

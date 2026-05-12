@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel feedback-panel {% if answer.correct %}feedback-correct{% else %}feedback-incorrect{% endif %}">
+    {% if answer.correct %}
+        <p class="result correct">Correct! The bug monster takes damage.</p>
+    {% else %}
+        <p class="result incorrect">Incorrect. The monster dodged this time.</p>
+    {% endif %}
+
+    <h1 class="feedback-title">{{ answer.question_text }}</h1>
+    <div class="feedback-stats">
+        <div>
+            <span>Points Earned</span>
+            <strong>{% if answer.correct %}+10{% else %}+0{% endif %}</strong>
+        </div>
+        <div>
+            <span>Current Score</span>
+            <strong>{{ player.score }}</strong>
+        </div>
+        <div>
+            <span>Correct Answer</span>
+            <strong>{{ answer.correct_answer }}</strong>
+        </div>
+    </div>
+    <p>You chose <strong>{{ answer.selected_answer }}</strong>. Correct answer: <strong>{{ answer.correct_answer }}</strong>.</p>
+    <div class="explanation">
+        <h2>Explanation</h2>
+        <p>{{ answer.explanation }}</p>
+    </div>
+
+    {% if level_finished %}
+        <div class="level-result">
+            <h2>Level Result</h2>
+            <p>You answered {{ correct_count }} questions correctly in this level.</p>
+            {% if passed %}
+                <p class="result correct">Level completed. Badge earned: {{ level.badge_name }}</p>
+            {% else %}
+                <p class="result incorrect">Level not completed yet. Review and try again.</p>
+            {% endif %}
+        </div>
+        <a class="button primary" href="{{ url_for('level_selection') }}">Back to Levels</a>
+    {% else %}
+        <a class="button primary" href="{{ url_for('question', level_number=level.level_number, question_number=next_question_number) }}">Next Monster</a>
+    {% endif %}
+</section>
+{% endblock %}

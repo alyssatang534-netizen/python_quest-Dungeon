@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-copy-card">
+        <p class="eyebrow">Dungeon coding adventure</p>
+        <h1>Python Quest: The Coding Dungeon</h1>
+        <p class="hero-copy">
+            Defeat bug monsters by answering Python questions, unlock deeper levels,
+            collect badges, and save your progress after every battle.
+        </p>
+        <div class="button-row">
+            <a class="button primary" href="{{ url_for('register') }}">Start Quest</a>
+            <a class="button secondary" href="{{ url_for('login') }}">Continue</a>
+        </div>
+    </div>
+    <div class="dungeon-art card" aria-hidden="true">
+        <div class="monster-face idle">
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="mouth"></span>
+        </div>
+        <div class="code-runes">
+            <span>if</span>
+            <span>def</span>
+            <span>try</span>
+        </div>
+    </div>
+</section>
+{% endblock %}

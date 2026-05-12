@@ -1,0 +1,60 @@
+{
+    "Alyssa": {
+        "username": "Alyssa",
+        "current_level": 3,
+        "score": 130,
+        "unlocked_levels": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "badges": [
+            "Syntax Starter",
+            "Control Hero",
+            "Function Builder"
+        ]
+    },
+    "XinyanTang": {
+        "username": "XinyanTang",
+        "current_level": 1,
+        "score": 30,
+        "unlocked_levels": [
+            1,
+            2
+        ],
+        "badges": [
+            "Syntax Starter"
+        ]
+    },
+    "demo": {
+        "username": "demo",
+        "current_level": 2,
+        "score": 50,
+        "unlocked_levels": [
+            1,
+            2,
+            3
+        ],
+        "badges": [
+            "Syntax Starter",
+            "Control Hero"
+        ]
+    },
+    "alyssa": {
+        "username": "alyssa",
+        "current_level": 3,
+        "score": 100,
+        "unlocked_levels": [
+            1,
+            2,
+            3,
+            4
+        ],
+        "badges": [
+            "Syntax Starter",
+            "Control Hero",
+            "Function Builder"
+        ]
+    }
+}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form-card card">
+    <p class="eyebrow">New adventurer</p>
+    <h1>Create Adventurer</h1>
+    <p class="muted">Register a player profile. Your password is hashed, and progress starts at level 1.</p>
+    <form method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username">
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password">
+
+        <button class="button primary full" type="submit">Register</button>
+    </form>
+</section>
+{% endblock %}

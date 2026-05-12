@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="panel">
+    <div class="section-title">
+        <div>
+            <p class="eyebrow">Bug monster map</p>
+            <h1>Level Selection</h1>
+        </div>
+        <div class="score-pill">Score: {{ player.score }}</div>
+    </div>
+
+    <div class="level-grid">
+        {% for level in levels %}
+            {% set unlocked = level.level_number in player.unlocked_levels %}
+            <article class="level-card {% if not unlocked %}locked{% endif %}">
+                <span class="level-number">Level {{ level.level_number }}</span>
+                <h2>{{ level.title }}</h2>
+                <p class="topic-line">
+                    Topics:
+                    {% for question in level.questions %}
+                        <span>{{ question.topic }}</span>
+                    {% endfor %}
+                </p>
+                <p>{{ level.questions|length }} Python bug monsters</p>
+                <p class="muted">Reward: {{ level.badge_name }}</p>
+                {% if unlocked %}
+                    <a class="button primary full" href="{{ url_for('question', level_number=level.level_number, question_number=1) }}">Battle</a>
+                {% else %}
+                    <span class="button disabled full">Locked</span>
+                {% endif %}
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="form-card card">
+    <p class="eyebrow">Returning player</p>
+    <h1>Enter the Dungeon</h1>
+    <p class="muted">Log in to load your saved score, unlocked levels, and badges.</p>
+    <form method="post">
+        <label for="username">Username</label>
+        <input id="username" name="username" type="text" autocomplete="username">
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password">
+
+        <button class="button primary full" type="submit">Login</button>
+    </form>
+</section>
+{% endblock %}
